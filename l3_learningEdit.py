@@ -45,7 +45,7 @@ import pox.openflow.libopenflow_01 as of
 from pox.lib.revent import *
 
 import time
-from .entropyCalculation import ddosDetection
+from .FusionEntropyCalculation import ddosDetection
 from .server import mitigationServer
 
 # Timeout for flows
@@ -182,13 +182,13 @@ class l3_switch (EventMixin):
       log.debug("%i %i IP %s => %s", dpid,inport,
                 packet.next.srcip,packet.next.dstip)
       #print "Calling ENTROPY"
-      obj.calculateEntropy(packet.next.dstip)
+      obj.calculateEntropy(packet.next.srcip)
       #print "Entropy value = ",str(obj.sumEntropy)
       if (obj.ddosDetected == 1) :
-         print("Controller detected DDOS ATTACK, Entropy value :",str(obj.sumEntropy))
+         print("Controller detected DDOS ATTACK, Fusion Entropy value :",str(obj.sumEntropy))
          obj.ddosDetected = 0
          print("Attack detected from host :",packet.next.srcip)
-         print("Entering into mitigation module,sending puzzle to host : ",packet.next.srcip)
+         #print("Entering into mitigation module,sending puzzle to host : ",packet.next.srcip)
          obj1.startServer()
          #quit()
          sys.exit()
