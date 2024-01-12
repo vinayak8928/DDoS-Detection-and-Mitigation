@@ -5,9 +5,9 @@ Developed an efficient strategy to detect and mitigate Distributed Denial of Ser
 
 To run the following code, follow the simple steps
 
-1. Turn on the pox controller
-2. Create and run the topolology
-3. Perform an attack on the server
-4. Logs of attack will be displayed in the pox cobtroller terminal
+1. Turn on the pox controller.
+2. Create and run the topolology.
+3. Perform an attack on the server.
+4. Logs of attack will be displayed in the pox controller terminal.
 5. Solve the puzzle once the puzzle is issued.
 
